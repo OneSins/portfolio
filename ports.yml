@@ -1,0 +1,23 @@
+---
+- name: open http and https
+  hosts: all
+  become_method: sudo
+  become_user: root
+
+
+
+  tasks:
+  - name: 80
+    ansible.posix.firewalld:
+      service: http
+      permanent: yes
+      state: enabled
+  - name: 443
+    ansible.posix.firewalld:
+      service: https
+      permanent: yes
+      state: enabled
+  - name: restart firewalld
+    ansible.builtin.service:
+      name: firewalld
+      state: restarted

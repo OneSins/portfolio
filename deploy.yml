@@ -1,0 +1,25 @@
+---
+- name: deploy website
+  hosts: all
+  become_user: root
+  become_method: sudo
+
+  vars:
+    source_folder: ../html
+    destin_folder: /var/www/
+
+  tasks:
+  - name: upload website
+    copy: 
+       src: "{{ source_folder }}"
+       dest: "{{ destin_folder }}"
+       mode: preserve
+    notify:
+      - Restart apache
+
+
+  handlers:
+  - name: Restart apache
+    service: 
+        name=httpd  
+        state=restarted

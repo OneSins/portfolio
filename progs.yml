@@ -1,0 +1,17 @@
+---
+- name: install useful progs
+  hosts: all
+  become_method: sudo
+  become_user: root  
+
+  tasks:
+  - name: Установить группу программ
+    yum:
+      name: "{{ package }}"
+    vars:
+      package:
+      - mc
+      - wget
+      - tar
+      - firewalld
+      state: latest
