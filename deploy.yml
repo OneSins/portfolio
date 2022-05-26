@@ -5,7 +5,7 @@
   become_method: sudo
 
   vars:
-    source_folder: ../html
+    source_folder: ./html
     destin_folder: /var/www/
 
   tasks:
