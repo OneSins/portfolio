@@ -2,7 +2,8 @@
 - name: install useful progs
   hosts: all
   become_method: sudo
-  become_user: root  
+  become_user: root 
+  become: yes
 
   tasks:
   - name: Установить группу программ
