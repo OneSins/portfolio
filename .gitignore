@@ -1,2 +1,8 @@
-hosts.txt
-group_vars/
+ansible.cfg
+apache.yml
+deploy.yml
+deploy1.yml
+ports.yml
+progs.yml
+testhost.txt
+upgrade.yml
