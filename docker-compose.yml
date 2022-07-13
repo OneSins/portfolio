@@ -1,0 +1,13 @@
+version: "3"
+services:
+  html:
+    image: html-server-image:v1 
+    restart: always
+    container_name: pod
+    ports:
+      - 80:80
+    networks:
+      - mynetwork  
+    
+networks:
+ mynetwork:
